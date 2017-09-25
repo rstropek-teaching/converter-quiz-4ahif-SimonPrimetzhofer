@@ -1,9 +1,4 @@
-var arg=process.argv;
 var converter=require('convert-units');
-if(arg.length!=6||isNaN(arg[2])||arg.indexOf('to')==-1||converter().possibilities().indexOf(`${arg[3]}`)==-1||converter().possibilities().indexOf(`${arg[5]}`)==-1||converter().from(`${arg[3]}`).possibilities().indexOf(`${arg[5]}`)==-1)
-    failure();
-console.log(`${arg[2]} ${arg[3]} are `+converter(`${arg[2]}`).from(`${arg[3]}`).to(`${arg[5]}`)+` ${arg[5]}`);
-function failure(){
+if(process.argv.length!=6||isNaN(process.argv[2])||process.argv.indexOf('to')==-1||converter().possibilities().indexOf(`${process.argv[3]}`)==-1||converter().possibilities().indexOf(`${process.argv[5]}`)==-1||converter().from(`${process.argv[3]}`).possibilities().indexOf(`${process.argv[5]}`)==-1)
     console.log("Invalid parameters");
-    process.exit(-1);
-}
+else console.log(`${process.argv[2]} ${process.argv[3]} are `+converter(`${process.argv[2]}`).from(`${process.argv[3]}`).to(`${process.argv[5]}`)+` ${process.argv[5]}`);
